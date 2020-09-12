@@ -1,10 +1,15 @@
 def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    main_arr_length = len(arrays)
+    # print(f'arr length -> {main_arr_length}\n')
+    store = {}
+    if main_arr_length > 1:
+        store = dict.fromkeys(arrays[0], 1)
+        for i in range(1, len(arrays)):
+            for j in arrays[i]:
+                if j in store:
+                    store[j] += 1
 
-    return result
+    return list(dict(filter(lambda x: x[1] == main_arr_length, store.items())).keys())
 
 
 if __name__ == "__main__":
